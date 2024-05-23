@@ -4,7 +4,7 @@ int main() {
     float quiz1,quiz2,hw1,hw2,hw3,midterm,final;
 
     //Takes input for each assignment grade
-    printf("This is the total grade calculator program\n");
+    printf("This is the total grade calculator program.\n");
     printf("Enter Quiz1 grade: ");
     scanf("%f", &quiz1);
 
