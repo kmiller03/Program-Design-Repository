@@ -1,3 +1,7 @@
+//Name: Kadin Miller
+//NetID: kadinmiller
+//Description: Prompts user to input grades for multiple assignments and calculates a graded average
+
 #include <stdio.h>
 
 int main() {
@@ -33,10 +37,6 @@ int main() {
     float finalAverage = final * 0.4;
 
     float totalGrade = (quizAverage + hwAverage + midtermAverage + finalAverage); 
-    //Individual average check print
-    //printf("%.2f, %.2f, %.2f, %.2f", quizAverage,hwAverage,midtermAverage,finalAverage);
-
     printf("Total Grade: %0.2f", totalGrade);
-
     return 0;
 }
