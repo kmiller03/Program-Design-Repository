@@ -37,6 +37,6 @@ int main() {
     float finalAverage = final * 0.4;
 
     float totalGrade = (quizAverage + hwAverage + midtermAverage + finalAverage); 
-    printf("Total Grade: %0.2f", totalGrade);
+    printf("Total grade: %0.2f", totalGrade);
     return 0;
 }
