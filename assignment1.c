@@ -1,7 +1,6 @@
 //Name: Kadin Miller
 //NetID: kadinmiller
-//Description: Prompts user to input grades for multiple assignments and calculates a graded average
-
+//Description: Prompts user to input grades for multiple assignments and calculates a total average grade
 #include <stdio.h>
 
 int main() {
@@ -30,12 +29,13 @@ int main() {
     printf("Enter Final exam grade: ");
     scanf("%f", &final);
 
-    //Calculates the average for each category and final value
+    //Calculates weighted average for each category
     float quizAverage = ((quiz1+quiz2) / 2) * 0.1;
     float hwAverage = ((hw1+hw2+hw3) / 3) * 0.2;
     float midtermAverage = midterm * 0.3;
     float finalAverage = final * 0.4;
 
+    //Sums and prints the weighted averages
     float totalGrade = (quizAverage + hwAverage + midtermAverage + finalAverage); 
     printf("Total grade: %0.2f", totalGrade);
     return 0;
