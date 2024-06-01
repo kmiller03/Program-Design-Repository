@@ -13,7 +13,7 @@ int main() {
     do {
         //Hours input request and validation
         printf("Enter the number of hours worked in the week (enter 0 to stop):");
-        scanf("%d", &hoursWorked);
+        scanf("%f", &hoursWorked);
         if (hoursWorked < 0) {
             printf("Invalid number\n");
             continue;
