@@ -16,7 +16,7 @@ int main() {
         //Tests and outputs if the fraction simplifies to a whole number
         numeratorModDenominator = numerator % denominator;
         denominatorModNumerator = denominator % numerator;
-        printf("1: %d, 2: %d\n", numeratorModDenominator, denominatorModNumerator);
+        //printf("1: %d, 2: %d\n", numeratorModDenominator, denominatorModNumerator);
         if (numeratorModDenominator == 0) {
             simplifiedNumerator = numerator / denominator;
             printf("In lowest terms: %d\n", simplifiedNumerator);
