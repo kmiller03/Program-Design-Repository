@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 #define OVERTIMETHRESHOLD 40
-#define OVERTIMEMODIFIER 1.5
+#define OVERTIMEPAY 1.5
 
 int main() {
     int hoursWorked, overtimeHours;
@@ -37,7 +37,7 @@ int main() {
         //Calculates gross income based on overtime hours
         overtimeHours = hoursWorked - OVERTIMETHRESHOLD;
         if (overtimeHours > 0) {
-            grossIncome = ((hoursWorked - OVERTIMETHRESHOLD) * hourlyPay) + (overtimeHours * OVERTIMEMODIFIER * hourlyPay);
+            grossIncome = ((hoursWorked - overtimeHours) * hourlyPay) + (overtimeHours * OVERTIMEPAY * hourlyPay);
         }
         else {
             grossIncome = hoursWorked * hourlyPay;
@@ -64,7 +64,7 @@ int main() {
 
         //Prints gross pay, taxes, and net pay
         printf("Weekly pay (Gross): $%0.2f\n", grossIncome);
-        printf("Tax: $%0.2f", taxesDue);
+        printf("Tax: $%0.2f\n", taxesDue);
         printf("Weekly pay (Net): $%0.2f\n", netIncome);
 
     } while(hoursWorked != 0);
