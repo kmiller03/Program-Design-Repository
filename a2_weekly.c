@@ -7,8 +7,7 @@
 #define OVERTIMEPAY 1.5
 
 int main() {
-    int hoursWorked, overtimeHours;
-    float hourlyPay, grossIncome, netIncome, taxesDue, bracketOne, bracketTwo, bracketThree;
+    float hoursWorked, overtimeHours, hourlyPay, grossIncome, netIncome, taxesDue, bracketOne, bracketTwo, bracketThree;
 
     //Continues program until exited by the user inputting 0
     do {
