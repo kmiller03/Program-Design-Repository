@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 int main() {
-    int numerator, denominator, simplifiedNumerator, simplifiedDenominator, numeratorModDenominator, denominatorModNumerator;
+    int numerator, denominator, simplifiedNumerator, simplifiedDenominator, numeratorModDenominator, denominatorModNumerator, gcd;
     
     do {
         //Takes inputs & breaks if 0. Takes mod.
@@ -28,9 +28,15 @@ int main() {
             simplifiedDenominator = denominator / numeratorModDenominator;
         }
         //Case for fractions with a greatest common denominator
-        else if(denominatorModNumerator != 0 && (denominator % denominatorModNumerator) == 0) {
-            simplifiedNumerator = numerator / denominatorModNumerator;
-            simplifiedDenominator = denominator / denominatorModNumerator;
+        else if(denominatorModNumerator != 0) {
+            gcd = numerator;
+            denominatorModNumerator = denominator;
+            while(denominatorModNumerator % gcd != 0) {
+                denominatorModNumerator = denominatorModNumerator % gcd;
+                gcd = denominatorModNumerator;
+            }
+            simplifiedNumerator = numerator / gcd;
+            simplifiedDenominator = denominator / gcd;
         }
         //Case for already simplified fractions
         else {
