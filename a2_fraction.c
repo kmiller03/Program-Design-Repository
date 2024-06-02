@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 int main() {
-    int numerator, denominator, simplifiedNumerator, simplifiedDenominator, numeratorModDenominator, denominatorModNumerator, gcd;
+    int numerator, denominator, simplifiedNumerator, simplifiedDenominator, numeratorModDenominator, denominatorModNumerator, gcd, temp;
     
     do {
         //Takes inputs & breaks if 0. Takes mod.
@@ -31,9 +31,10 @@ int main() {
         else if(denominatorModNumerator != 0) {
             gcd = numerator;
             denominatorModNumerator = denominator;
-            while(denominatorModNumerator % gcd != 0) {
-                denominatorModNumerator = denominatorModNumerator % gcd;
-                gcd = denominatorModNumerator;
+            while(denominatorModNumerator != 0) {
+                temp = denominatorModNumerator;
+                denominatorModNumerator = gcd % denominatorModNumerator;
+                gcd = temp; 
             }
             simplifiedNumerator = numerator / gcd;
             simplifiedDenominator = denominator / gcd;
