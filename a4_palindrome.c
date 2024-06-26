@@ -2,12 +2,11 @@
 //NetID: kadinmiller
 //Description: Takes a string input and prints whether or not it is a palindrome.
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
 #define INPUT_LENGTH 100
 
 int main() {
-char terminateProgram = 'a';
+char terminateProgram;
 int isPalindrome = 1;
 int count;
 
@@ -63,17 +62,9 @@ while (terminateProgram != 'N' && terminateProgram != 'n') {
 
     //Terminates the program if an N is inputted as first char
     printf("Do you want to continue (N to stop)? ");
-    while ( (terminateProgram = getchar()) ) { //how do I ignore any whitespace or newlines without using isalpha? 
-        if (isalpha(terminateProgram) || isdigit(terminateProgram) ) {
-            break;
-        }
-    }
-    if (terminateProgram == 'n') {break;}
-    while ((terminateProgram = getchar()) != '\n') {
-        if (terminateProgram == 'n') { //hacky.
-            break;
-        }
-    }
+    while ((ch = getchar()) == ' ' || ch == '\n')
+    scanf("%c", &terminateProgram);
+    while (getchar()!= '\n');
 }
     return 0;
 }
