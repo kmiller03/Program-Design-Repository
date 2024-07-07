@@ -12,6 +12,7 @@ int main() {
             printf("%c", ch);
             ch = getchar();
             continue;
+            
         }
             
         printf("%c",ch);
