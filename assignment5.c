@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     totalAverageTemperature /= totalMeasuredDays;
     //Writes the total to the file
     fprintf(outputFile, "***** Total *****");
-    fprintf(outputFile, "Measured months: %d\n", );
+    fprintf(outputFile, "Measured months: %d\n", measuredMonths);
     fprintf(outputFile, "Measured days: %d\n", totalMeasuredDays);
     fprintf(outputFile, "Average temperature: %0.2f\n\n", totalAverageTemperature);
 
