@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
 
     //Calculates the monthly and total measured days and average temperature
     int totalMeasuredDays = 0;
+    int measuredMonths = 0;
     float totalAverageTemperature = 0;
     for (int i = 0; i < 12; i++) {
         //Counts number of nonzero temperatures
@@ -73,14 +74,15 @@ int main(int argc, char *argv[])
         if (measuredDays == 0) {
             continue;
         }
-
-        fprintf(outputFile, "**** %s ****\n", monthNames[i]);
+        measuredMonths++;
+        fprintf(outputFile, "***** %s *****\n", monthNames[i]);
         fprintf(outputFile, "Measured days: %d\n", measuredDays);
         fprintf(outputFile, "Average temperature: %0.2f\n\n", monthAverageTemperature);
     }
     totalAverageTemperature /= totalMeasuredDays;
     //Writes the total to the file
-    fprintf(outputFile, "**** Total ****\n");
+    fprintf(outputFile, "***** Total *****");
+    fprintf(outputFile, "Measured months: %d\n", );
     fprintf(outputFile, "Measured days: %d\n", totalMeasuredDays);
     fprintf(outputFile, "Average temperature: %0.2f\n\n", totalAverageTemperature);
 
