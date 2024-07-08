@@ -9,15 +9,17 @@
 
 int main(int argc, char *argv[])
 {
+    //Instantiates boolean and name arrays
     float temperatureArray[12][31] = {0};
     int recordedDates[12][31];
-    char *monthNames[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     for (int i = 0; i < 12; i++) {
         for (int b = 0; b < 31; b++) {
             recordedDates[i][b] = 0;
         }
     }
-    //struct temperatureReading dataArray[MAX_TEMPERATURE_READINGS];
+    char *monthNames[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
+    //test command: struct temperatureReading dataArray[MAX_TEMPERATURE_READINGS];
     int month;
     int day;
     float temperature;
@@ -31,7 +33,7 @@ int main(int argc, char *argv[])
 
     //Records the inputted file's contents to an array
     fscanf(inputFile, "%*[^\n]\n");
-    //printf("%ld", ftell(inputFile));
+    //test command: printf("%ld", ftell(inputFile));
     while (!feof(inputFile) && !ferror(inputFile)) {
         fscanf(inputFile, "%d, %d, %f\n", &month, &day, &temperature);
 
@@ -74,13 +76,13 @@ int main(int argc, char *argv[])
 
         fprintf(outputFile, "**** %s ****\n", monthNames[i]);
         fprintf(outputFile, "Measured days: %d\n", measuredDays);
-        fprintf(outputFile, "Average temperature: %f\n\n", monthAverageTemperature);
+        fprintf(outputFile, "Average temperature: %0.2f\n\n", monthAverageTemperature);
     }
     totalAverageTemperature /= totalMeasuredDays;
     //Writes the total to the file
     fprintf(outputFile, "**** Total ****\n");
     fprintf(outputFile, "Measured days: %d\n", totalMeasuredDays);
-    fprintf(outputFile, "Average temperature: %f\n\n", totalAverageTemperature);
+    fprintf(outputFile, "Average temperature: %0.2f\n\n", totalAverageTemperature);
 
     return 0;
 }
