@@ -11,12 +11,7 @@ int main(int argc, char *argv[])
 {
     //Instantiates boolean and name arrays
     float temperatureArray[12][31] = {0};
-    int recordedDates[12][31];
-    for (int i = 0; i < 12; i++) {
-        for (int b = 0; b < 31; b++) {
-            recordedDates[i][b] = 0;
-        }
-    }
+    int recordedDates[12][31] = {0};
     char *monthNames[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     //test command: struct temperatureReading dataArray[MAX_TEMPERATURE_READINGS];
@@ -38,9 +33,10 @@ int main(int argc, char *argv[])
         fscanf(inputFile, "%d, %d, %f\n", &month, &day, &temperature);
 
         //skips the line if it's been recorded already
-        if (recordedDates[month-1][day-1] != 0) {
+        if (recordedDates[month-1][day-1] != 0 || month > 12 || month < 1 || day > 31 || day < 1) {
             continue;
         }
+
         recordedDates[month-1][day-1] = 1;
         temperatureArray[month-1][day-1] = temperature;
     }
