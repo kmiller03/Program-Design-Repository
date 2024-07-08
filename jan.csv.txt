@@ -1,0 +1,8 @@
+**** Jan ****
+Measured days: 20
+Average temperature: 64.000000
+
+**** Total ****
+Measured days: 20
+Average temperature: 1280.000000
+
