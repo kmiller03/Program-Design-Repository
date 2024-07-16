@@ -133,33 +133,44 @@ struct bank_account createNewAccount(struct bank_account *accountArray)
     // Adds open date to newAccount
     while (1)
     {
-        //char openDateTemp[22];
+        char openDateTemp[22];
         char openDate[22];
-        int year;
-        int day;
-        int month;
+        int year = 0;
+        int day = 0;
+        int month = 0;
         char yearStr[4];
         char dayStr[2];
         char monthStr[2];
-        while (getchar() != '\n' && getchar() != EOF);
+        while (getchar() != '\n' && getchar() != EOF)
+            ;
         printf("Enter open date (YYYY-MM-DD): ");
         scanf("%s", openDate);
-
-        sscanf(openDate, "%s%*s%s%*s%s", yearStr, dayStr, monthStr);
-
-        sscanf(openDate, "%d%*s%d%*s%d", &year, &day, &month);
-
-        if ((strlen(yearStr) > 4 || strlen(dayStr) < 2 || strlen(monthStr) < 2) || ((year < 0 || year > 9999) || (day < 1 || day > 31) || (month < 1 || month > 12)))
+        strcpy(openDateTemp, openDate);
+        if ((3 != sscanf(openDate, "%d-%d-%d", &year, &day, &month)) || ((year < 0 || year > 9999) || (day < 1 || day > 31) || (month < 1 || month > 12)))
         {
             printf("%s Wrong date format.\n", openDate);
             continue;
         }
+        if ((3 != sscanf(openDate, "%s-%s-%s", yearStr, dayStr, monthStr)) || (strlen(yearStr) != 4) || (strlen(dayStr) != 2) || (strlen(monthStr) != 2))
+        {
+            while (getchar() != '\n' && getchar() != EOF)
+            ;
+
+            printf("%s Wrong date format.\n", openDate);
+            continue;
+        }
+        //try checking character by character for the format instead :/
         for (int i = 0; i < strlen(openDate); i++)
         {
-            newAccount.accountOwner[i] = accountOwner[i];
+            newAccount.openDate[i] = openDate[i];
         }
         break;
     }
+
+    float accountBalance;
+    printf("Enter balance (number only): ");
+    scanf("%f", &accountBalance);
+    newAccount.balance = accountBalance;
     return newAccount;
 }
 
