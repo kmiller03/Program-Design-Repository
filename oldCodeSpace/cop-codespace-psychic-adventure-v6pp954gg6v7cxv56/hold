@@ -1,0 +1,141 @@
+// 7-7-2024
+    while (!feof(inputFile) && !ferror(inputFile)) {
+        fscanf(inputFile, "%d, %d, %d\n", &month, &day, &temperature);
+
+        int uniqueDate = 1;
+        int endLoop = 0;
+        for (int i = 0; i < uniqueEntriesCount; i++) {
+            for (int j = 0; j < uniqueEntriesCount; i++) {
+                if (recordedDates[i][j] == ) {
+                    uniqueDate = 0;
+                }
+            }
+        }
+    }
+
+
+
+
+int isThisAPalindrome(char *input) {
+
+char inversePointer = input;
+char inputPointer = 
+inputPointer--;
+for (int i = 0; i < count; i++)
+{
+    if (*inversePointer != *inputPointer)
+    {
+        isPalindrome = 0;
+        break;
+    }
+    inversePointer++;
+    inputPointer--;
+}
+    return 1;
+}
+
+
+
+
+//6/26/2024
+    while ( (terminateProgram = getchar()) ) { //how do I ignore any whitespace or newlines without using isalpha? 
+        if (isalpha(terminateProgram) || isdigit(terminateProgram) ) {
+            break;
+        }
+    }
+    if (terminateProgram == 'n') {break;}
+    while ((terminateProgram = getchar()) != '\n') {
+        if (terminateProgram == 'n') { //hacky.
+            break;
+        }
+
+//6/26/2024
+        //Outputs how many times the search number was found and if so in what position
+        if (searchCount == 0) {
+            printf("Not found: %d is not in the array.\n", searchNumber);
+        }
+        else if (searchCount > 1) {
+            printf("Found: %d is in position %d, %d in the array.\n", searchNumber, place, searchCount);  
+        }
+        else {
+            printf("Found: %d is in position %d in the array.\n", searchNumber, place);  
+        }
+
+
+
+
+
+
+
+
+
+
+//Name: Kadin Miller 
+//NetID: kadinmiller
+//Description: Takes a quantity of integers and list of integers from 0 to 200 and prints only unique numbers entered
+
+
+#include <stdio.h>
+
+int main() {
+    int integerCount, newInt, isRepeated, list[100], ignoredValues, count;
+    
+    //While loop runs program while the user has not inputted 0
+    do {
+        //Input and input verification
+        printf("Enter the number of input integers (0 to stop): ");
+        scanf("%d", &integerCount);
+        if (integerCount == 0) {
+            break;
+        }
+        else if (integerCount < 0) {
+            printf("Invalid number\n");
+            continue;
+        }
+
+        //Initialize a list based on inputted length and takes input for list of integers, ignoring invalid inputs
+        printf("Enter numbers (0 - 200): ");
+        ignoredValues = 0;
+        count = 0;
+        for (int i = 0; i < integerCount; i++) {
+            scanf(" %d", &newInt);
+            //printf("integerCount: %d\n", integerCount);
+            //printf("I is: %d\n", i);
+            if (newInt < 0 || newInt > 200) {
+                printf("%d: invalid and ignored\n", newInt);
+                i--;
+                continue; 
+            }
+
+            //Tests for repeated inputs
+            isRepeated = 0;
+            for (int b = 0; b < count; b++) {
+                if (newInt == list[b]) {
+                    isRepeated = 1;
+                    ignoredValues++;
+                    count++;
+                    break;
+                }
+            }
+
+            if (isRepeated != 1) {
+                list[count] = newInt;
+                count++;
+            }
+        }
+
+        //Clears buffer so it loops right
+        while (getchar() != '\n');
+
+        //Prints all the unique valid numbers inputted
+        printf("Unique numbers: ");
+        for (int i = 0; i < ((integerCount - ignoredValues) - 1); i++) {
+            printf("%d, ", list[i]);
+        }
+        printf("%d\n", list[integerCount-1]);
+        
+    } while (integerCount != 0);
+
+    return 0;
+}
+
