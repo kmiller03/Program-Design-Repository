@@ -6,6 +6,17 @@
 
 #define MAXIMUM_NAME_LENGTH 30
 
+void printMainMenu() {
+    printf("******* Main menu *******\n"
+            "c(reate an account)\n"
+            "d(eposit money)\n"
+            "w(ithdraw money)\n"
+            "s(sort and print accounts)\n"
+            "q(uit program)\n"
+            "*************************\n"
+            "Enter operation code (c, d, w, s, q):");
+}
+
 struct bank_account{
     int accountNumber;
     char accountType;
@@ -16,8 +27,7 @@ struct bank_account{
 
 
 int main() {
-
-
+    printMainMenu();
 
     return 0;
 }
